@@ -1,16 +1,16 @@
 #[cfg(test)]
 mod tests {
 
-    use futures::prelude::*;
-    use futures::channel::mpsc as futures_mpsc;
-    use tokio::sync::mpsc as tokio_mpsc;
-
     #[test]
     fn channel_comparison() {
 
         // TODO:
         // Is it ever more appropriate to use tokio_mpsc over futures_mpsc?
         // Or, are the two channels interchangeable?
+
+        use futures::prelude::*;
+        use futures::channel::mpsc as futures_mpsc;
+        use tokio::sync::mpsc as tokio_mpsc;
 
         let mut runtime = tokio::runtime::Runtime::new().expect("failed to create Tokio runtime");
         runtime.block_on(async {
