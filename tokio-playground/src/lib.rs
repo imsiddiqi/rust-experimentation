@@ -4,9 +4,7 @@ mod tests {
     #[test]
     fn channel_comparison() {
 
-        // TODO:
-        // Is it ever more appropriate to use tokio_mpsc over futures_mpsc?
-        // Or, are the two channels interchangeable?
+        // TODO: What is the difference between `futures::channel` and `tokio::sync`?
 
         use futures::prelude::*;
         use futures::channel::mpsc as futures_mpsc;
