@@ -2,5 +2,6 @@
 members = [
     "parallel",
     "references",
+    "slices",
     "tokio-playground",
 ]

@@ -4,6 +4,54 @@ mod tests {
     use futures::lock::Mutex as AsyncMutex;
     use std::collections::BTreeMap;
     use std::sync::Arc;
+    use std::ops::Deref;
+
+    fn test(s: &str) {
+        println!("{}", s);
+    }
+
+    struct Wrapper {
+        s: &'static str,
+    }
+
+    impl Wrapper {
+        fn new() -> Self {
+            Self{ s: "Hello?" }
+        }
+    }
+
+    impl Deref for Wrapper {
+        type Target = &'static str;
+
+        fn deref(&self) -> &Self::Target {
+            return &self.s;
+        }
+    }
+
+    #[test]
+    fn dereference() {
+        let s = String::from("Test");
+
+        test(&s);
+        test(*Wrapper::new());
+        test(&Wrapper::new());
+
+        let a: &String = &s;
+        let b: &str = *Wrapper::new();
+        let c: &Wrapper = &Wrapper::new();
+
+        test(a);
+        test(b);
+        test(c);
+
+        let a_deref: &str = &a;
+        let b_deref: &str = &b;
+        let c_deref: &str = &c;
+
+        test(a_deref);
+        test(b_deref);
+        test(c_deref);
+    }
 
     #[test]
     fn shared_mutable_references() {

@@ -1,4 +1,5 @@
 pub mod channel_implementations;
+pub mod select;
 
 #[cfg(test)]
 mod tests {
@@ -183,5 +184,23 @@ mod tests {
                 }
             }
         });
+    }
+
+    #[test]
+    fn select_1() {
+        tokio::runtime::Runtime::new()
+            .expect("failed to create Tokio runtime")
+            .block_on(async {
+                crate::select::select_1().await;
+            });
+    }
+
+    #[test]
+    fn select_2() {
+        tokio::runtime::Runtime::new()
+            .expect("failed to create Tokio runtime")
+            .block_on(async {
+                crate::select::select_2().await;
+            });
     }
 }
