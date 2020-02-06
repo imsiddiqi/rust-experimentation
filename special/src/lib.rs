@@ -70,4 +70,28 @@ mod tests {
         list.append(0).append(1).append(2);
         assert_eq!(format!("{:?}", list), "List(0, List(1, List(2, Empty)))");
     }
+
+    #[test]
+    fn pinned() {
+        /*
+
+        // Let's start by looking at an example that doesn't compile:
+
+        struct Value {
+            value: usize,
+        }
+
+        struct Wrapper<'a> {
+            value: Value,
+            reference: &'a Value,
+        }
+
+        let value = Value { value: 0 };
+        let test = Wrapper {
+            value: value,
+            reference: &value, // E0382
+        };
+
+        */
+    }
 }
