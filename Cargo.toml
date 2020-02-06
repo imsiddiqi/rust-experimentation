@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "arc-mut",
+    "dyn",
     "parallel",
     "references",
     "slices",
