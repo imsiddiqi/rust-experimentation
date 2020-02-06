@@ -3,6 +3,7 @@ members = [
     "arc-mut",
     "dyn",
     "parallel",
+    "ref-keyword",
     "references",
     "slices",
     "special",
